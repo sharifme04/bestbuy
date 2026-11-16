@@ -77,6 +77,7 @@ def start(store_obj):
 
 
 def main():
+    """Set up the default inventory and start the store menu."""
     # setup initial stock of inventory
     product_list = [products.Product("MacBook Air M2", price=1450, quantity=100),
                     products.Product("Bose QuietComfort Earbuds", price=250, quantity=500),
