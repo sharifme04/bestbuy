@@ -46,7 +46,7 @@ def make_order(store_obj):
         total_price = store_obj.order(shopping_list)
         print("********")
         print(f"Order made! Total payment: ${total_price}")
-    except Exception as error:
+    except ValueError as error:
         print(f"Error while making order! {error}")
 
 

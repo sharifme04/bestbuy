@@ -35,18 +35,18 @@ class Store:
         requested = {}
         for product, quantity in shopping_list:
             if product not in self.products:
-                raise Exception(f"{product.name} is not sold in this store.")
+                raise ValueError(f"{product.name} is not sold in this store.")
             if quantity <= 0:
                 raise ValueError("Order quantity must be greater than 0.")
             requested[product] = requested.get(product, 0) + quantity
 
         for product, quantity in requested.items():
             if not product.is_active():
-                raise Exception(f"{product.name} is not available.")
+                raise ValueError(f"{product.name} is not available.")
             if quantity > product.get_quantity():
-                raise Exception(f"Not enough stock of {product.name}: "
-                                f"requested {quantity}, "
-                                f"available {product.get_quantity()}.")
+                raise ValueError(f"Not enough stock of {product.name}: "
+                                 f"requested {quantity}, "
+                                 f"available {product.get_quantity()}.")
 
         total_price = 0
         for product, quantity in shopping_list:

@@ -47,10 +47,10 @@ class Product:
         if quantity <= 0:
             raise ValueError("Purchase quantity must be greater than 0.")
         if not self.active:
-            raise Exception(f"{self.name} is not available.")
+            raise ValueError(f"{self.name} is not available.")
         if quantity > self.quantity:
-            raise Exception(f"Not enough stock of {self.name}: "
-                            f"requested {quantity}, available {self.quantity}.")
+            raise ValueError(f"Not enough stock of {self.name}: "
+                             f"requested {quantity}, available {self.quantity}.")
 
         total_price = self.price * quantity
         self.set_quantity(self.quantity - quantity)
